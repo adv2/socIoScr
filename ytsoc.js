@@ -40,7 +40,7 @@ app.use(express.static(__dirname + '/public')); // Отправляет "ста�
 
 
 var listLastLoads = [];
-for (var i = 0; i < 1; i++) {
+for (var i = 0; i < 29; i++) {
 		listLastLoads[i] = '';
 	}
 
@@ -86,7 +86,7 @@ io.on('connection', function (socket) {
 		socket.emit('newUserUpdate', insert);
 	}
 	else{
-		socket.emit('newUserErase', insert);
+		//socket.emit('newUserErase', insert);
 	}
 		
 	// Обработчик ниже // Мы его сделали внутри коннекта
@@ -217,7 +217,8 @@ app.use(function(err, req, res, next){
   // render a 404 template here
   if (404 == err.status) {
     res.statusCode = 404;
-    res.send(msgNoFilePageError);
+    //res.send(msgNoFilePageError);
+	res.sendfile('fileNotFound.html',{root: __dirname + '/public'});
   } else {
     next(err);
   }
