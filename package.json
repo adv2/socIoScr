@@ -1,0 +1,10 @@
+{
+  "name": "socket-youtube-converter",
+  "version": "0.0.1",
+  "description": "youtube converter with socket.io app",
+  "dependencies": {
+    "express": "^4.15.3",
+    "log4js": "^1.1.1",
+    "socket.io": "^2.0.3"
+  }
+}
