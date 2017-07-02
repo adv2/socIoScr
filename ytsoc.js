@@ -8,7 +8,7 @@ var io = require('socket.io')(server); // Подключаем socket.io и ук
 var log4js = require('log4js'); // Подключаем наш логгер
 var logger = log4js.getLogger(); // Подключаем из модуля log4js сам логгер
 var spawn = require('child_process').spawn; // Подключаем spawn для запуска внешних скриптов
-var fs = require("fs"); // working with files: delete
+var fs = require("fs"); // working with files: delete 
 
 
 function encodeValueChars (str) {
@@ -40,7 +40,7 @@ app.use(express.static(__dirname + '/public')); // Отправляет "ста�
 
 
 var listLastLoads = [];
-for (var i = 0; i < 30; i++) {
+for (var i = 0; i < 1; i++) {
 		listLastLoads[i] = '';
 	}
 
