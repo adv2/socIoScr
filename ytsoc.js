@@ -216,7 +216,7 @@ app.use(function(err, req, res, next){
   // remember you could
   // render a 404 template here
   if (404 == err.status) {
-    res.statusCode = 404;
+    res.statusCode = 404; 
     //res.send(msgNoFilePageError);
 	res.sendfile('fileNotFound.html',{root: __dirname + '/public'});
   } else {
