@@ -85,10 +85,7 @@ io.on('connection', function (socket) {
 		logger.warn('Current listLastLoads: ' + insert);
 		socket.emit('newUserUpdate', insert);
 	}
-	else{
-		//socket.emit('newUserErase', insert);
-	}
-		
+			
 	// Обработчик ниже // Мы его сделали внутри коннекта
 	// обработчик события 'message' на самом сервере.
 	socket.on('message', function(msg){ // Обработчик на событие 'message' и аргументом (msg) из переменной message
