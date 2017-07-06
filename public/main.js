@@ -1,5 +1,6 @@
 var port = 3000; // Указываем порт на котором у на стоит сокет
-var socket = io.connect('http://195.81.27.106:' + port); // Тут мы объявляем "socket" (дальше мы будем с ним работать) и подключаемся сразу к серверу через порт
+//var socket = io.connect('http://195.81.27.106:' + port); // Тут мы объявляем "socket" (дальше мы будем с ним работать) и подключаемся сразу к серверу через порт
+var socket = io.connect('http://ym.abookru.com'); // Тут мы объявляем "socket" 
 
 
 socket.on('privateMessage', function(privateMsg){ // Создаем прослушку 'privateMessage' и принимаем переменную в виде аргумента 'privateMsg'

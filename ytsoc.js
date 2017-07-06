@@ -58,7 +58,7 @@ io.on('connection', function (socket) {
 		msgHowToUse = 'Хотите получить MP3 копию ролика с YouTube?! Скопируйте URL-адрес YouTube ролика в форму внизу и нажмите кнопку "Отправить".'
 		msgWrongUrlFormat = 'Неверный формат URL-адреса. Попробуйте еще раз. Скопируйте URL-адрес YouTube ролика в форму внизу и нажмите кнопку "Отправить".'
 		msgUrlAccepted = 'Начинаем работать с '
-		msgDownConvert = 'Ждите... Скачивание и конвертация могут занять несколько минут: '
+		msgDownConvert = ' Ж д и т е ... Скачивание и конвертация могут занять несколько минут: '
 		msgFileIsReady = 'Поздравляем! Ваш MP3 файл готов. Ссылка должна появиться внизу. Хотите получить MP3 копию следующего ролика с YouTube?! Скопируйте URL-адрес YouTube ролика в форму внизу и нажмите кнопку "Отправить".'
 		msgNoFilePageError = 'К сожалению запрашиваемый файл или страница не доступны. <a href="/">Попробуйте заново.</a>'
 	;
@@ -74,8 +74,7 @@ io.on('connection', function (socket) {
 	var insert = '';
 	for (var i=0; i<listLastLoads.length; i++){
 		if (listLastLoads[i] != '') {
-			var fileUrl = '/download/' + listLastLoads[i];
-			var encoded_url = encodeURI(fileUrl);
+			var encoded_url = '/download/' + encodeURIComponent(listLastLoads[i]);
 			insert = insert + '<li><a href="'+ encoded_url +'">Скачать :: ' + listLastLoads[i] + '</a></li>'; 
 			logger.warn('Current listLastLoads: ' + insert);
 		}
@@ -158,8 +157,7 @@ io.on('connection', function (socket) {
 			ls.on('close', (code) => {
 				console.log(`child process exited with code ${code}`);
 				socket.emit('privateMessage', msgFileIsReady);
-				var fileUrl = '/download/' + fileName;
-				var encoded_url = encodeURI(fileUrl);
+				var encoded_url = '/download/' + encodeURIComponent(fileName);
 				console.log("encoded_url: " + encoded_url);
 				socket.emit('linkToLoad', '<li><a href="'+ encoded_url +'">Скачать :: ' + fileName + '</a></li>');
 				
